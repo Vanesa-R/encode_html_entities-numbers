@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Codificador de entidades</title>
+</head>
+<body>
+    <main class="main">
+        <section class="container__encode">
+            <h1 class="title">Codificador de entidades</h1>
+            <div class="encoders">
+                <textarea name="textarea" id="text" class="text" placeholder="Escribe o copia aquí el símbolo"></textarea>
+                <div class="inputs">
+                    <input type="button" value="Codificar" class="btn" id="btn-encode">
+                    <input type="reset" value="Limpiar" class="btn" id="btn-reset">
+                </div>
+                <div class="numbers">
+                    <p class="description">Número HTML:</p>       
+                    <div class="code__inputs">
+                        <p class="text-generate" id="code__numbers"></p>
+                        <input type="button" value="Copiar" class="btn" id="btn__number">
+                    </div>             
+                </div>
+                <div class="entities">
+                    <p class="description">Entidad HTML:</p>
+                    <div class="code__inputs">
+                        <p class="text-generate" id="code__entities"></p>
+                        <input type="button" value="Copiar" class="btn" id="btn__entity">
+                    </div>
+                    <span class="message"></span>
+                </div>
+            </div>
+        </section>
+        <section class="tabs">
+            <div class="tab_nav">
+                <ul>
+                    <li class="tab-item --active">32 - 54</li>
+                    <li class="tab-item">55 - 77</li>
+                    <li class="tab-item">78 - 100</li>
+                    <li class="tab-item">101 - 123</li>
+                    <li class="tab-item">124 - 179</li>
+                    <li class="tab-item">180 - 202</li>
+                    <li class="tab-item">203 - 225</li>
+                    <li class="tab-item">226 - 248</li>
+                    <li class="tab-item">249 - 271</li>
+                    <li class="tab-item">272 - 291</li>
+                    <li class="tab-item">292 - 314</li>
+                    <li class="tab-item">315 - 337</li>
+                    <li class="tab-item">338 - 360</li>
+                    <li class="tab-item">361 - 383</li>
+                    <li class="tab-item">402 - 733</li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <table class="table --active">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol"> </td>
+                            <td class="decimal"></td>
+                            <td>20</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">!</td>
+                            <td class="decimal"></td>
+                            <td>21</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">"</td>
+                            <td class="decimal"></td>
+                            <td>22</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">#</td>
+                            <td class="decimal"></td>
+                            <td>23</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">$</td>
+                            <td class="decimal"></td>
+                            <td>24</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">%</td>
+                            <td class="decimal"></td>
+                            <td>25</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">&</td>
+                            <td class="decimal"></td>
+                            <td>26</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">'</td>
+                            <td class="decimal"></td>
+                            <td>27</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">(</td>
+                            <td class="decimal"></td>
+                            <td>28</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">)</td>
+                            <td class="decimal"></td>
+                            <td>29</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">*</td>
+                            <td class="decimal"></td>
+                            <td>2A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">+</td>
+                            <td class="decimal"></td>
+                            <td>2B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">,</td>
+                            <td class="decimal"></td>
+                            <td>2C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">-</td>
+                            <td class="decimal"></td>
+                            <td>2D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">.</td>
+                            <td class="decimal"></td>
+                            <td>2E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">/</td>
+                            <td class="decimal"></td>
+                            <td>2F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">0</td>
+                            <td class="decimal"></td>
+                            <td>30</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">1</td>
+                            <td class="decimal"></td>
+                            <td>31</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">2</td>
+                            <td class="decimal"></td>
+                            <td>32</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">3</td>
+                            <td class="decimal"></td>
+                            <td>33</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">4</td>
+                            <td class="decimal"></td>
+                            <td>34</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">5</td>
+                            <td class="decimal"></td>
+                            <td>35</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">6</td>
+                            <td class="decimal"></td>
+                            <td>36</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">7</td>
+                            <td class="decimal"></td>
+                            <td>37</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">8</td>
+                            <td class="decimal"></td>
+                            <td>37</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">9</td>
+                            <td class="decimal"></td>
+                            <td>38</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">:</td>
+                            <td class="decimal"></td>
+                            <td>3A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">;</td>
+                            <td class="decimal"></td>
+                            <td>3B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol"><</td>
+                            <td class="decimal"></td>
+                            <td>3C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">=</td>
+                            <td class="decimal"></td>
+                            <td>3D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">></td>
+                            <td class="decimal"></td>
+                            <td>3E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">?</td>
+                            <td class="decimal"></td>
+                            <td>3F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">@</td>
+                            <td class="decimal"></td>
+                            <td>40</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">A</td>
+                            <td class="decimal"></td>
+                            <td>41</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">B</td>
+                            <td class="decimal"></td>
+                            <td>42</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">C</td>
+                            <td class="decimal"></td>
+                            <td>43</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">D</td>
+                            <td class="decimal"></td>
+                            <td>44</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">E</td>
+                            <td class="decimal"></td>
+                            <td>45</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">F</td>
+                            <td class="decimal"></td>
+                            <td>46</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">G</td>
+                            <td class="decimal"></td>
+                            <td>47</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">H</td>
+                            <td class="decimal"></td>
+                            <td>48</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">I</td>
+                            <td class="decimal"></td>
+                            <td>49</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">J</td>
+                            <td class="decimal"></td>
+                            <td>4A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">K</td>
+                            <td class="decimal"></td>
+                            <td>4B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">L</td>
+                            <td class="decimal"></td>
+                            <td>4C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">M</td>
+                            <td class="decimal"></td>
+                            <td>4D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">N</td>
+                            <td class="decimal"></td>
+                            <td>4E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">O</td>
+                            <td class="decimal"></td>
+                            <td>4F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">P</td>
+                            <td class="decimal"></td>
+                            <td>50</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Q</td>
+                            <td class="decimal"></td>
+                            <td>51</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">R</td>
+                            <td class="decimal"></td>
+                            <td>52</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">S</td>
+                            <td class="decimal"></td>
+                            <td>53</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">T</td>
+                            <td class="decimal"></td>
+                            <td>54</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">U</td>
+                            <td class="decimal"></td>
+                            <td>55</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">V</td>
+                            <td class="decimal"></td>
+                            <td>56</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">W</td>
+                            <td class="decimal"></td>
+                            <td>57</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">X</td>
+                            <td class="decimal"></td>
+                            <td>58</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Y</td>
+                            <td class="decimal"></td>
+                            <td>59</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Z</td>
+                            <td class="decimal"></td>
+                            <td>5A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">[</td>
+                            <td class="decimal"></td>
+                            <td>5B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">\</td>
+                            <td class="decimal"></td>
+                            <td>5C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">]</td>
+                            <td class="decimal"></td>
+                            <td>5D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">^</td>
+                            <td class="decimal"></td>
+                            <td>5E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">_</td>
+                            <td class="decimal"></td>
+                            <td>5F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">`</td>
+                            <td class="decimal"></td>
+                            <td>60</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">a</td>
+                            <td class="decimal"></td>
+                            <td>61</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">b</td>
+                            <td class="decimal"></td>
+                            <td>62</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">c</td>
+                            <td class="decimal"></td>
+                            <td>63</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">d</td>
+                            <td class="decimal"></td>
+                            <td>64</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">e</td>
+                            <td class="decimal"></td>
+                            <td>65</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">f</td>
+                            <td class="decimal"></td>
+                            <td>66</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">g</td>
+                            <td class="decimal"></td>
+                            <td>67</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">h</td>
+                            <td class="decimal"></td>
+                            <td>68</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">i</td>
+                            <td class="decimal"></td>
+                            <td>69</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">j</td>
+                            <td class="decimal"></td>
+                            <td>6A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">k</td>
+                            <td class="decimal"></td>
+                            <td>6B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">l</td>
+                            <td class="decimal"></td>
+                            <td>6C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">m</td>
+                            <td class="decimal"></td>
+                            <td>6D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">n</td>
+                            <td class="decimal"></td>
+                            <td>6E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">o</td>
+                            <td class="decimal"></td>
+                            <td>6F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">p</td>
+                            <td class="decimal"></td>
+                            <td>70</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">q</td>
+                            <td class="decimal"></td>
+                            <td>71</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">r</td>
+                            <td class="decimal"></td>
+                            <td>72</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">s</td>
+                            <td class="decimal"></td>
+                            <td>73</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">t</td>
+                            <td class="decimal"></td>
+                            <td>74</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">u</td>
+                            <td class="decimal"></td>
+                            <td>75</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">v</td>
+                            <td class="decimal"></td>
+                            <td>76</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">w</td>
+                            <td class="decimal"></td>
+                            <td>77</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">x</td>
+                            <td class="decimal"></td>
+                            <td>78</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">y</td>
+                            <td class="decimal"></td>
+                            <td>79</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">z</td>
+                            <td class="decimal"></td>
+                            <td>7A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">{</td>
+                            <td class="decimal"></td>
+                            <td>7B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>                       
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">|</td>
+                            <td class="decimal"></td>
+                            <td>7C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">}</td>
+                            <td class="decimal"></td>
+                            <td>7D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">~</td>
+                            <td class="decimal"></td>
+                            <td>7E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol"> </td>
+                            <td class="decimal"></td>
+                            <td>A0</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¡</td>
+                            <td class="decimal"></td>
+                            <td>A1</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¢</td>
+                            <td class="decimal"></td>
+                            <td>A2</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">£</td>
+                            <td class="decimal"></td>
+                            <td>A3</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¤</td>
+                            <td class="decimal"></td>
+                            <td>A4</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¥</td>
+                            <td class="decimal"></td>
+                            <td>A5</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¦</td>
+                            <td class="decimal"></td>
+                            <td>A6</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">§</td>
+                            <td class="decimal"></td>
+                            <td>A7</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¨</td>
+                            <td class="decimal"></td>
+                            <td>A8</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">©</td>
+                            <td class="decimal"></td>
+                            <td>A9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ª</td>
+                            <td class="decimal"></td>
+                            <td>AA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">«</td>
+                            <td class="decimal"></td>
+                            <td>AB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¬</td>
+                            <td class="decimal"></td>
+                            <td>AC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">­­&#173;</td>
+                            <td class="decimal">173</td>
+                            <td>AD</td>
+                            <td class="number">&<code>#173;</code></td>
+                            <td class="entity">&<code>shy;</code></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">®</td>
+                            <td class="decimal"></td>
+                            <td>AE</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¯</td>
+                            <td class="decimal"></td>
+                            <td>AF</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">°</td>
+                            <td class="decimal"></td>
+                            <td>B0</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">±</td>
+                            <td class="decimal"></td>
+                            <td>B1</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">²</td>
+                            <td class="decimal"></td>
+                            <td>B2</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">³</td>
+                            <td class="decimal"></td>
+                            <td>B3</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">´</td>
+                            <td class="decimal"></td>
+                            <td>B4</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">µ</td>
+                            <td class="decimal"></td>
+                            <td>B5</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¶</td>
+                            <td class="decimal"></td>
+                            <td>B6</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">·</td>
+                            <td class="decimal"></td>
+                            <td>B7</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¸</td>
+                            <td class="decimal"></td>
+                            <td>B8</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¹</td>
+                            <td class="decimal"></td>
+                            <td>B9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">º</td>
+                            <td class="decimal"></td>
+                            <td>BA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">»</td>
+                            <td class="decimal"></td>
+                            <td>BB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¼</td>
+                            <td class="decimal"></td>
+                            <td>BC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">½</td>
+                            <td class="decimal"></td>
+                            <td>BD</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¾</td>
+                            <td class="decimal"></td>
+                            <td>BE</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">¿</td>
+                            <td class="decimal"></td>
+                            <td>BF</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">À</td>
+                            <td class="decimal"></td>
+                            <td>C0</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Á</td>
+                            <td class="decimal"></td>
+                            <td>C1</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Â</td>
+                            <td class="decimal"></td>
+                            <td>C2</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ã</td>
+                            <td class="decimal"></td>
+                            <td>C3</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ä</td>
+                            <td class="decimal"></td>
+                            <td>C4</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Å</td>
+                            <td class="decimal"></td>
+                            <td>C5</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Æ</td>
+                            <td class="decimal"></td>
+                            <td>C6</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ç</td>
+                            <td class="decimal"></td>
+                            <td>C7</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">È</td>
+                            <td class="decimal"></td>
+                            <td>C8</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">É</td>
+                            <td class="decimal"></td>
+                            <td>C9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ê</td>
+                            <td class="decimal"></td>
+                            <td>CA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+
+                    </tbody>              
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">Ë</td>
+                            <td class="decimal"></td>
+                            <td>CB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ì</td>
+                            <td class="decimal"></td>
+                            <td>CC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Í</td>
+                            <td class="decimal"></td>
+                            <td>CD</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Î</td>
+                            <td class="decimal"></td>
+                            <td>CE</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                            <td class="symbol">Ï</td>
+                            <td class="decimal"></td>
+                            <td>CF</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ð</td>
+                            <td class="decimal"></td>
+                            <td>D0</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ñ</td>
+                            <td class="decimal"></td>
+                            <td>D1</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ò</td>
+                            <td class="decimal"></td>
+                            <td>D2</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ó</td>
+                            <td class="decimal"></td>
+                            <td>D3</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ô</td>
+                            <td class="decimal"></td>
+                            <td>D4</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Õ</td>
+                            <td class="decimal"></td>
+                            <td>D5</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ö</td>
+                            <td class="decimal"></td>
+                            <td>D6</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">×</td>
+                            <td class="decimal"></td>
+                            <td>D7</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ø</td>
+                            <td class="decimal"></td>
+                            <td>D8</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ù</td>
+                            <td class="decimal"></td>
+                            <td>D9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ú</td>
+                            <td class="decimal"></td>
+                            <td>DA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Û</td>
+                            <td class="decimal"></td>
+                            <td>DB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ü</td>
+                            <td class="decimal"></td>
+                            <td>DC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ý</td>
+                            <td class="decimal"></td>
+                            <td>DD</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Þ</td>
+                            <td class="decimal"></td>
+                            <td>DE</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ß</td>
+                            <td class="decimal"></td>
+                            <td>DF</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">à</td>
+                            <td class="decimal"></td>
+                            <td>E0</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">á</td>
+                            <td class="decimal"></td>
+                            <td>E1</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">â</td>
+                            <td class="decimal"></td>
+                            <td>E2</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ã</td>
+                            <td class="decimal"></td>
+                            <td>E3</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ä</td>
+                            <td class="decimal"></td>
+                            <td>E4</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">å</td>
+                            <td class="decimal"></td>
+                            <td>E5</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">æ</td>
+                            <td class="decimal"></td>
+                            <td>E6</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ç</td>
+                            <td class="decimal"></td>
+                            <td>E7</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">è</td>
+                            <td class="decimal"></td>
+                            <td>E8</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">é</td>
+                            <td class="decimal"></td>
+                            <td>E9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ê</td>
+                            <td class="decimal"></td>
+                            <td>EA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ë</td>
+                            <td class="decimal"></td>
+                            <td>EB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ì</td>
+                            <td class="decimal"></td>
+                            <td>EC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">í</td>
+                            <td class="decimal"></td>
+                            <td>ED</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">î</td>
+                            <td class="decimal"></td>
+                            <td>EE</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ï</td>
+                            <td class="decimal"></td>
+                            <td>EF</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ð</td>
+                            <td class="decimal"></td>
+                            <td>F0</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ñ</td>
+                            <td class="decimal"></td>
+                            <td>F1</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ò</td>
+                            <td class="decimal"></td>
+                            <td>F2</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ó</td>
+                            <td class="decimal"></td>
+                            <td>F3</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ô</td>
+                            <td class="decimal"></td>
+                            <td>F4</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">õ</td>
+                            <td class="decimal"></td>
+                            <td>F5</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ö</td>
+                            <td class="decimal"></td>
+                            <td>F6</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">÷</td>
+                            <td class="decimal"></td>
+                            <td>F7</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ø</td>
+                            <td class="decimal"></td>
+                            <td>F8</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">ù</td>
+                            <td class="decimal"></td>
+                            <td>F9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ú</td>
+                            <td class="decimal"></td>
+                            <td>FA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">û</td>
+                            <td class="decimal"></td>
+                            <td>FB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ü</td>
+                            <td class="decimal"></td>
+                            <td>FC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ý</td>
+                            <td class="decimal"></td>
+                            <td>FD</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">þ</td>
+                            <td class="decimal"></td>
+                            <td>FE</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ÿ</td>
+                            <td class="decimal"></td>
+                            <td>FF</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ā</td>
+                            <td class="decimal"></td>
+                            <td>0100</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ā</td>
+                            <td class="decimal"></td>
+                            <td>0101</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ă</td>
+                            <td class="decimal"></td>
+                            <td>0102</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ă</td>
+                            <td class="decimal"></td>
+                            <td>0103</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ą</td>
+                            <td class="decimal"></td>
+                            <td>0104</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ą</td>
+                            <td class="decimal"></td>
+                            <td>0105</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ć</td>
+                            <td class="decimal"></td>
+                            <td>0106</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ć</td>
+                            <td class="decimal"></td>
+                            <td>0107</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĉ</td>
+                            <td class="decimal"></td>
+                            <td>0108</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĉ</td>
+                            <td class="decimal"></td>
+                            <td>0109</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ċ</td>
+                            <td class="decimal"></td>
+                            <td>010A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ċ</td>
+                            <td class="decimal"></td>
+                            <td>010B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Č</td>
+                            <td class="decimal"></td>
+                            <td>010C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">č</td>
+                            <td class="decimal"></td>
+                            <td>010D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ď</td>
+                            <td class="decimal"></td>
+                            <td>010E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ď</td>
+                            <td class="decimal"></td>
+                            <td>010F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">Đ</td>
+                            <td class="decimal"></td>
+                            <td>0110</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">đ</td>
+                            <td class="decimal"></td>
+                            <td>0111</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ē</td>
+                            <td class="decimal"></td>
+                            <td>0112</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ē</td>
+                            <td class="decimal"></td>
+                            <td>0113</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĕ</td>
+                            <td class="decimal"></td>
+                            <td>0114</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĕ</td>
+                            <td class="decimal"></td>
+                            <td>0115</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ė</td>
+                            <td class="decimal"></td>
+                            <td>0116</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ė</td>
+                            <td class="decimal"></td>
+                            <td>0117</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ę</td>
+                            <td class="decimal"></td>
+                            <td>0118</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ę</td>
+                            <td class="decimal"></td>
+                            <td>0119</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ě</td>
+                            <td class="decimal"></td>
+                            <td>011A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ě</td>
+                            <td class="decimal"></td>
+                            <td>011B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĝ</td>
+                            <td class="decimal"></td>
+                            <td>011C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĝ</td>
+                            <td class="decimal"></td>
+                            <td>011D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ğ</td>
+                            <td class="decimal"></td>
+                            <td>011E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ğ</td>
+                            <td class="decimal"></td>
+                            <td>011F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ġ</td>
+                            <td class="decimal"></td>
+                            <td>0120</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ġ</td>
+                            <td class="decimal"></td>
+                            <td>0121</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ġ</td>
+                            <td class="decimal"></td>
+                            <td>0120</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ġ</td>
+                            <td class="decimal"></td>
+                            <td>0120</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ġ</td>
+                            <td class="decimal"></td>
+                            <td>0121</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ģ</td>
+                            <td class="decimal"></td>
+                            <td>0122</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ģ</td>
+                            <td class="decimal"></td>
+                            <td>0123</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">Ĥ</td>
+                            <td class="decimal"></td>
+                            <td>0124</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĥ</td>
+                            <td class="decimal"></td>
+                            <td>0125</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ħ</td>
+                            <td class="decimal"></td>
+                            <td>0126</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ħ</td>
+                            <td class="decimal"></td>
+                            <td>0127</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĩ</td>
+                            <td class="decimal"></td>
+                            <td>0128</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĩ</td>
+                            <td class="decimal"></td>
+                            <td>0129</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ī</td>
+                            <td class="decimal"></td>
+                            <td>012A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ī</td>
+                            <td class="decimal"></td>
+                            <td>012B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĭ</td>
+                            <td class="decimal"></td>
+                            <td>012C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĭ</td>
+                            <td class="decimal"></td>
+                            <td>012D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Į</td>
+                            <td class="decimal"></td>
+                            <td>012E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">į</td>
+                            <td class="decimal"></td>
+                            <td>012F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">İ</td>
+                            <td class="decimal"></td>
+                            <td>0130</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ı</td>
+                            <td class="decimal"></td>
+                            <td>0131</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĳ</td>
+                            <td class="decimal"></td>
+                            <td>0132</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĳ</td>
+                            <td class="decimal"></td>
+                            <td>0133</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĵ</td>
+                            <td class="decimal"></td>
+                            <td>0134</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĵ</td>
+                            <td class="decimal"></td>
+                            <td>0135</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ķ</td>
+                            <td class="decimal"></td>
+                            <td>0136</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ķ</td>
+                            <td class="decimal"></td>
+                            <td>0137</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĸ</td>
+                            <td class="decimal"></td>
+                            <td>0138</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ĺ</td>
+                            <td class="decimal"></td>
+                            <td>0139</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ĺ</td>
+                            <td class="decimal"></td>
+                            <td>013A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">Ļ</td>
+                            <td class="decimal"></td>
+                            <td>013B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ļ</td>
+                            <td class="decimal"></td>
+                            <td>013C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ľ</td>
+                            <td class="decimal"></td>
+                            <td>013D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ľ</td>
+                            <td class="decimal"></td>
+                            <td>013E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŀ</td>
+                            <td class="decimal"></td>
+                            <td>013F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŀ</td>
+                            <td class="decimal"></td>
+                            <td>0140</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ł</td>
+                            <td class="decimal"></td>
+                            <td>0141</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ł</td>
+                            <td class="decimal"></td>
+                            <td>0142</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ń</td>
+                            <td class="decimal"></td>
+                            <td>0143</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ń</td>
+                            <td class="decimal"></td>
+                            <td>0144</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ņ</td>
+                            <td class="decimal"></td>
+                            <td>0145</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ņ</td>
+                            <td class="decimal"></td>
+                            <td>0146</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ň</td>
+                            <td class="decimal"></td>
+                            <td>0147</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ň</td>
+                            <td class="decimal"></td>
+                            <td>0148</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŉ</td>
+                            <td class="decimal"></td>
+                            <td>0149</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŋ</td>
+                            <td class="decimal"></td>
+                            <td>014A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŋ</td>
+                            <td class="decimal"></td>
+                            <td>014B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ō</td>
+                            <td class="decimal"></td>
+                            <td>014C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ō</td>
+                            <td class="decimal"></td>
+                            <td>014D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŏ</td>
+                            <td class="decimal"></td>
+                            <td>014E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŏ</td>
+                            <td class="decimal"></td>
+                            <td>014F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ő</td>
+                            <td class="decimal"></td>
+                            <td>0150</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ő</td>
+                            <td class="decimal"></td>
+                            <td>0151</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">Œ</td>
+                            <td class="decimal"></td>
+                            <td>0152</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">œ</td>
+                            <td class="decimal"></td>
+                            <td>0153</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŕ</td>
+                            <td class="decimal"></td>
+                            <td>0154</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŕ</td>
+                            <td class="decimal"></td>
+                            <td>0155</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŗ</td>
+                            <td class="decimal"></td>
+                            <td>0156</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŗ</td>
+                            <td class="decimal"></td>
+                            <td>0157</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ř</td>
+                            <td class="decimal"></td>
+                            <td>0158</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ř</td>
+                            <td class="decimal"></td>
+                            <td>0159</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ś</td>
+                            <td class="decimal"></td>
+                            <td>015A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ś</td>
+                            <td class="decimal"></td>
+                            <td>015B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŝ</td>
+                            <td class="decimal"></td>
+                            <td>015C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŝ</td>
+                            <td class="decimal"></td>
+                            <td>015D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ş</td>
+                            <td class="decimal"></td>
+                            <td>015E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ş</td>
+                            <td class="decimal"></td>
+                            <td>015F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Š</td>
+                            <td class="decimal"></td>
+                            <td>0160</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">š</td>
+                            <td class="decimal"></td>
+                            <td>0161</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ţ</td>
+                            <td class="decimal"></td>
+                            <td>0162</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ţ</td>
+                            <td class="decimal"></td>
+                            <td>0163</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ť</td>
+                            <td class="decimal"></td>
+                            <td>0164</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ť</td>
+                            <td class="decimal"></td>
+                            <td>0165</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŧ</td>
+                            <td class="decimal"></td>
+                            <td>0166</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŧ</td>
+                            <td class="decimal"></td>
+                            <td>0167</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ũ</td>
+                            <td class="decimal"></td>
+                            <td>0168</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>     
+                        <tr>
+                            <td class="symbol">ũ</td>
+                            <td class="decimal"></td>
+                            <td>0169</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ū</td>
+                            <td class="decimal"></td>
+                            <td>016A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ū</td>
+                            <td class="decimal"></td>
+                            <td>016B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŭ</td>
+                            <td class="decimal"></td>
+                            <td>016C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŭ</td>
+                            <td class="decimal"></td>
+                            <td>016D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ů</td>
+                            <td class="decimal"></td>
+                            <td>016E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ů</td>
+                            <td class="decimal"></td>
+                            <td>016F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ű</td>
+                            <td class="decimal"></td>
+                            <td>0170</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ű</td>
+                            <td class="decimal"></td>
+                            <td>0171</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ų</td>
+                            <td class="decimal"></td>
+                            <td>0172</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ų</td>
+                            <td class="decimal"></td>
+                            <td>0173</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŵ</td>
+                            <td class="decimal"></td>
+                            <td>0174</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŵ</td>
+                            <td class="decimal"></td>
+                            <td>0175</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ŷ</td>
+                            <td class="decimal"></td>
+                            <td>0176</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ŷ</td>
+                            <td class="decimal"></td>
+                            <td>0177</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ÿ</td>
+                            <td class="decimal"></td>
+                            <td>0178</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ź</td>
+                            <td class="decimal"></td>
+                            <td>0179</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ź</td>
+                            <td class="decimal"></td>
+                            <td>017A</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ż</td>
+                            <td class="decimal"></td>
+                            <td>017B</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ż</td>
+                            <td class="decimal"></td>
+                            <td>017C</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ž</td>
+                            <td class="decimal"></td>
+                            <td>017D</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ž</td>
+                            <td class="decimal"></td>
+                            <td>017E</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ſ</td>
+                            <td class="decimal"></td>
+                            <td>017F</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <th>Símbolo</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Número HTML</th>
+                        <th>Entidad HTML</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="symbol">ƒ</td>
+                            <td class="decimal"></td>
+                            <td>0192</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ǻ</td>
+                            <td class="decimal"></td>
+                            <td>01FA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ǻ</td>
+                            <td class="decimal"></td>
+                            <td>01FB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ǽ</td>
+                            <td class="decimal"></td>
+                            <td>01FC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ǽ</td>
+                            <td class="decimal"></td>
+                            <td>01FD</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">Ǿ</td>
+                            <td class="decimal"></td>
+                            <td>01FE</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ǿ</td>
+                            <td class="decimal"></td>
+                            <td>01FF</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ˆ</td>
+                            <td class="decimal"></td>
+                            <td>02C6</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ˇ</td>
+                            <td class="decimal"></td>
+                            <td>02C7</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">ˉ</td>
+                            <td class="decimal"></td>
+                            <td>02C9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">˘</td>
+                            <td class="decimal"></td>
+                            <td>02D8</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">˙</td>
+                            <td class="decimal"></td>
+                            <td>02D9</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">˚</td>
+                            <td class="decimal"></td>
+                            <td>02DA</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">˛</td>
+                            <td class="decimal"></td>
+                            <td>02DB</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">˜</td>
+                            <td class="decimal"></td>
+                            <td>02DC</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                        <tr>
+                            <td class="symbol">˝</td>
+                            <td class="decimal"></td>
+                            <td>02DD</td>
+                            <td class="number"></td>
+                            <td class="entity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts-->
+    <script src="js/tabs.js"></script>
+    <script src="js/encode.js"></script>
+
+</body>
+</html>
